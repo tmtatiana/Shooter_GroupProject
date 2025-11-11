@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8680093723984368043}
   - component: {fileID: 2357885570851058654}
   - component: {fileID: 5197220550824775400}
-  - component: {fileID: 5226384142049886900}
+  - component: {fileID: -8083505395748643651}
   - component: {fileID: 846083409922804653}
   - component: {fileID: 8807148330770124183}
   m_Layer: 0
@@ -92,7 +92,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5226384142049886900
+--- !u!114 &-8083505395748643651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,10 +103,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90981bb860dc0484a84435a5987f13b6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   lives: 0
   bulletPrefab: {fileID: 8981031500348598581, guid: cbb9ec2394d27fa4f96d1aad5f1a874a, type: 3}
-  explosionPrefab: {fileID: 4343321553462166904, guid: 9c753bb1371f2da4585dbc6bf9338fed, type: 3}
+  explosionPrefab: {fileID: 1319844142004296533, guid: 62be9dc16b60aee458e44f1c1838879a, type: 3}
 --- !u!50 &846083409922804653
 Rigidbody2D:
   serializedVersion: 5

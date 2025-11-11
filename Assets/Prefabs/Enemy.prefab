@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4956206237364879815}
   - component: {fileID: 2105040347755465651}
   - component: {fileID: 7976489715550789770}
-  - component: {fileID: -5475461601077139464}
+  - component: {fileID: -7507582412748346726}
   - component: {fileID: 3511550055056232448}
   m_Layer: 0
   m_Name: Enemy
@@ -91,7 +91,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5475461601077139464
+--- !u!114 &-7507582412748346726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

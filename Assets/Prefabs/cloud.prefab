@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4093935687210389811}
   - component: {fileID: 6464880590443997537}
-  - component: {fileID: -6960793478580070616}
+  - component: {fileID: 6679000496353809689}
   m_Layer: 0
   m_Name: cloud
   m_TagString: Untagged
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6960793478580070616
+--- !u!114 &6679000496353809689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -71,15 +71,16 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x * -1, transform.position.y, 0);
         }
         //Player leaves the screen vertically (only occupies lower half of the screen)
-            //script from class:
-            //    if (transform.position.y > verticalScreenLimit || transform.position.y <= -verticalScreenLimit)
-            //    {
-            //            transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
-            //    }
+        //script from class:
+        //    if (transform.position.y > verticalScreenLimit || transform.position.y <= -verticalScreenLimit)
+        //    {
+        //            transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
+        //    }
         if (transform.position.y >= 0)
         {
             transform.position = new Vector3(transform.position.x, -3.5f, 0);
-        } else if (transform.position.y < -3.5f)
+        }
+        else if (transform.position.y < -3.5f)
         {
             transform.position = new Vector3(transform.position.x, 0, 0);
         }

@@ -32,7 +32,8 @@ public class Enemy : MonoBehaviour
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             whatDidIHit.GetComponent<PlayerController>().LoseALife();
-        } else if (whatDidIHit.gameObject.tag == "Weapons")
+        }
+        else if (whatDidIHit.gameObject.tag == "Weapons")
         {
             Destroy(whatDidIHit.gameObject);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
