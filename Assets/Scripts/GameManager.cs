@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,26 +11,14 @@ public class GameManager : MonoBehaviour
     public GameObject enemyOnePrefab;
     public GameObject enemyTwoPrefab;
     public GameObject cloudPrefab;
-    public GameObject powerupPrefab;
-    public GameObject coinPrefab;
-    public GameObject audioPlayer;
 
-    // Audios
-    public AudioClip powerupSound;
-    public AudioClip powerdownSound;
-
-    // Text
-    public GameObject gameOverText;
-    public GameObject restartText;
-    public TextMeshProUGUI livesText;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI powerupText;
+    // Unsure of this functionality but it was present in canvas scripts
+    // public TextMeshProUGUI livesText;
 
     public float horizontalScreenSize;
     public float verticalScreenSize;
+
     public int score;
-    public int cloudMove;
-    private bool gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -40,31 +26,16 @@ public class GameManager : MonoBehaviour
         horizontalScreenSize = 8.5f;
         verticalScreenSize = 3.5f;
         score = 0;
-        cloudMove = 1;
-        gameOver = false;
-        AddScore(0);
-        // Excluding this line because player is already present before startup.
         //Instantiate(playerPrefab, transform.position, Quaternion.identity);
-        
         CreateSky();
-        
         InvokeRepeating("CreateEnemy", 2, 3);
-        InvokeRepeating("CreateEnemy2", 1, 3);
-        InvokeRepeating("CreatePowerup", 1, 4);
-        InvokeRepeating("CreateCoin", 1, 4);
-
-        /*StartCoroutine(SpawnCoin());
-        StartCoroutine(SpawnPowerup());*/
-        powerupText.text = "No powerups yet!";
+        InvokeRepeating("CreateEnemy2", 1, 2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameOver && Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+
     }
 
     void CreateEnemy()
@@ -74,99 +45,56 @@ public class GameManager : MonoBehaviour
 
     void CreateEnemy2()
     {
-        Instantiate(enemyTwoPrefab, new Vector3(Random.Range(-1.3f, horizontalScreenSize), verticalScreenSize, 0), Quaternion.Euler(180, 0, 0));
-    }
-
-    void CreatePowerup()
-    {
-        Instantiate(powerupPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), verticalScreenSize, 0), Quaternion.identity);
-    }
-
-    void CreateCoin()
-    {
-        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), verticalScreenSize, 0), Quaternion.identity);
+        Instantiate(enemyTwoPrefab, new Vector3(Random.Range(-2, horizontalScreenSize), verticalScreenSize, 0), Quaternion.Euler(180, 0, 0));
     }
 
     void CreateSky()
     {
         for (int i = 0; i < 30; i++)
         {
-            Instantiate(cloudPrefab, new Vector3(Random.Range(-horizontalScreenSize - 2.5f, horizontalScreenSize + 2.5f), Random.Range(-verticalScreenSize, verticalScreenSize), 0), Quaternion.identity);
+            Instantiate(cloudPrefab, new Vector3(Random.Range(0, horizontalScreenSize), Random.Range(-verticalScreenSize, verticalScreenSize), 0), Quaternion.identity);
         }
 
     }
-
-    public void ManagePowerupText(int powerupType)
-    {
-        switch (powerupType)
-        {
-            case 1:
-                powerupText.text = "Speed!";
-                break;
-            case 2:
-                powerupText.text = "Double Weapon!";
-                break;
-            case 3:
-                powerupText.text = "Triple Weapon!";
-                break;
-            case 4:
-                powerupText.text = "Shield!";
-                break;
-            default:
-                powerupText.text = "No powerups yet!";
-                break;
-        }
-    }
-    /*
-    IEnumerator SpawnPowerup()
-    {
-        float spawnTime = Random.Range(3, 5);
-        yield return new WaitForSeconds(spawnTime);
-        CreatePowerup();
-        StartCoroutine(SpawnPowerup());
-    }
-
-    IEnumerator SpawnCoin()
-    {
-        float spawnTime = Random.Range(3, 5);
-        yield return new WaitForSeconds(spawnTime);
-        CreateCoin();
-        StartCoroutine(SpawnCoin());
-    }
-    */
-
-    public void PlaySound(int whichSound)
-    {
-        switch (whichSound)
-        {
-            case 1:
-                audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerupSound);
-                break;
-            case 2:
-                audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerdownSound);
-                break;
-        }
-    }
-
     public void AddScore(int pointsAdded)
     {
         score += pointsAdded;
         Debug.Log("Score: " + score);
-        scoreText.text = "Score: " + score;
     }
 
     public void ChangeLivesText(int currentLives)
     {
-        livesText.text = "Lives: " + currentLives;
+        //livesText.text = "Lives: " + currentLives;
         Debug.Log("Lives: " + currentLives);
     }
+}
 
-    public void GameOver()
+
+/* Original GameManager
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+
+    public GameObject enemyOnePrefab;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        gameOverText.SetActive(true);
-        restartText.SetActive(true);
-        gameOver = true;
-        CancelInvoke();
-        cloudMove = 0;
+        InvokeRepeating("CreateEnemyOne", 1, 2);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void CreateEnemyOne()
+    {
+        Instantiate(enemyOnePrefab, new Vector3(Random.Range(-9f, 9f), 6.5f, 0), Quaternion.identity);
     }
 }
+*/
